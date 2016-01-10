@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="liam_410Gone" title="410 Gone" version_string="1.0.0" version_id="1000070" url="https://xf-liam.com" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <admin_template_modifications/>
+  <code_events>
+    <event event_id="410_gone_data"><![CDATA[<p>Called when a 404 error response is encountered on a public controller. Used to input data for the 410 Gone Add-On.</p>
+
+<p>Callback signature:</p>
+<blockquote><code><em>array</em> &$data, <em>XenForo_ControllerPublic_Abstract</em> $controller, $controllerName, $action</code></blockquote>
+
+<p>Arguments:</p>
+<ol>
+	<li><code><em>array</em> &$data</code> - the array of data. The key is the controller name, then the table name and field name at indices 0 and 1 respectively.
+	<li><code><em>XenForo_Controller</em> $controller</code> - the controller instance. From this, you can inspect the request, response, etc.</li>
+	<li><code><em>string</em> $controllerName</code> - name of the controller class that was requested for execution by the front controller. This should be a concrete class, not affected by load_class_controller events.</li>
+	<li><code><em>string</em> $action</code> - the specific action that was executed in this controller.</li>
+</ol>]]></event>
+  </code_events>
+  <code_event_listeners>
+    <listener event_id="410_gone_data" execute_order="10" callback_class="LiamW_410Gone_Listener" callback_method="goneThreadData" active="1" hint="" description=""/>
+    <listener event_id="controller_post_dispatch" execute_order="0" callback_class="LiamW_410Gone_Listener" callback_method="controllerPostDispatch" active="1" hint="" description=""/>
+  </code_event_listeners>
+  <cron/>
+  <email_templates/>
+  <email_template_modifications/>
+  <optiongroups/>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases/>
+  <route_prefixes/>
+  <style_properties/>
+  <templates/>
+  <public_template_modifications/>
+  <bb_code_media_sites/>
+  <bb_codes/>
+</addon>
